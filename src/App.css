@@ -1,38 +1,214 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Delius', cursive;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container{
+  background-color:rgba(212, 212, 212, 0.788); 
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.search-form{
+  /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.search-form form{
+  /* border: 2px solid black; */
+  margin: .2rem 1.2rem;
+  padding:.2rem 1.2rem;
+}
+.search-form form h2{
+  font-size: 1.5rem;
+  margin-bottom: .8rem;
+}
+.search-form form input{
+  outline: none;
+  border: none;
+  border-bottom: 2px solid grey;
+  text-transform: capitalize;
+  padding: 8px;
+  padding-bottom: 0.2rem;
+  border-radius: 8px;
+  font-size: .9rem;
+  transition:all 0.2s ease;
+}
+.search-form form input:hover{
+  box-shadow: 2px 2px 6px black;
+}
+.search-form .sort-btn{
+  padding:6px 10px;
+  border-radius:.4rem;
+  font-size: .8rem;
+  color: white;
+  border: 1px solid green;
+  color: green;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  transition:background 0.2s ease;
+  font-weight: 600;
+}
+.search-form .sort-btn:hover{
+  background-color: green;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    padding: 8px;
+}
+.btn-container p{
+  padding: 3px 8px ;
+  margin:0 .8rem ;
+}
+.btn-container .page-btn{
+  padding: 5px 9px;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-container .page-btn:hover{
+  box-shadow: 4px 2px 6px grey;
+  margin-bottom: .2rem;
+}
+.card {
+  margin: 0 auto;
+  max-width: 80vw;
+  display: grid;
+  grid-template-columns:1.5fr 1.4fr;
+  grid-gap:0.4 rem 0.4rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:1.2rem ;
+}
+.card .story{
+  border-bottom: 2px solid rgb(48, 153, 214);
+  border-radius: 8px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  margin: .2rem;
+  width: 30rem;
+  height: 10rem;
+  transition: all 0.3s ease;
+}
+.card .story:hover{
+  border-bottom: 3px solid rgb(22, 131, 22);
+  box-shadow: 0 -1px 8px black;
+}
+.card .story h2{
+  line-height: 1.2rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
+}
+.card .story p{
+  font-weight: 600;
+  margin-bottom: .5rem;
+  user-select: none;
+}
+.card .story .links{
+  box-sizing: border-box;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: -1.2rem;
+}
+.story .links a{
+  text-decoration: none;
+    text-transform: capitalize;
+    border: 1px solid orange;
+    border-radius: 6px;
+    padding: 3px 7px;
+    color: orange;
+    cursor: pointer;
+    font-weight: 700;
+    transition:all 0.2s ease ;
+}
+.story .links .remove{
+  border:1px solid rgb(238, 51, 51);
+  padding:4px 7px;
+  border-radius: 6px;
+  color: rgb(238, 51, 51);
+  background-color: white;
+  cursor: pointer;
+  font-weight: 800;
+  transition:all 0.2s ease ;
+}
+.story .links a:hover{
+  color: white;
+  background-color: orange;
+}
+.story .links .remove:hover{
+  color: white;
+  background-color: rgb(245, 45, 45);
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sort-btn:disabled,
+.page-btn:disabled {
+  cursor: not-allowed;
+}
+@media (max-width:1230px) {
+  .card .story{
+    width: 80%;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width:960px) {
+  .card .story{
+    height: 10rem;
+  }
+  .card .story h2{
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .card .story p{
+    font-size: .8rem;
+  }
+  .card .links a, 
+  .card .links .remove{
+    font-size: .8rem;
+    font-weight: 600;
+  }
+}
+@media (max-width:700px) {
+  .card{
+    grid-template-columns:1fr;
+  }
+}
+@media (max-width:376px) {
+  .search-form .sort-btn{
+    margin-right: 1.4rem;
+  }
+  .card .story{
+    height: 12rem;
+  }
+  .story .links a{
+    margin-left: -.2rem;
+    margin-right: .4rem;
   }
 }
